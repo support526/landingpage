@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phonedipity</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  
+  <!-- For Apple devices -->
+  <link rel="apple-touch-icon" href="assets/images/stick.png">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f5e6ff 0%, #ffffff 100%);
+      color: #000;
+      overflow-x: hidden;
+    }
+
+    header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 60px;
+      position: sticky;
+      top: 0;
+      background-color: rgba(255, 255, 255, 0.95);
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      height: 36px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 35px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #000;
+      font-weight: 500;
+      transition: 0.3s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #a349ff;
+    }
+
+    .download-btn {
+      border: 1px solid #a349ff;
+      color: #000;
+      background: transparent;
+      padding: 8px 18px;
+      border-radius: 25px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .download-btn:hover {
+      background: #a349ff;
+      color: #fff;
+    }
+
+    /* Mobile Menu */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #000;
+    }
+
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 80px;
+      left: 0;
+      width: 100%;
+      background: white;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      z-index: 999;
+      flex-direction: column;
+      padding: 20px;
+      gap: 15px;
+    }
+
+    .mobile-nav.active {
+      display: flex;
+    }
+
+    .mobile-nav a {
+      text-decoration: none;
+      color: #000;
+      font-weight: 500;
+      padding: 10px 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .mobile-nav a:hover,
+    .mobile-nav a.active {
+      color: #a349ff;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 90px 20px;
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .hero h1 span {
+      color: #a349ff;
+    }
+
+    .hero p {
+      color: #555;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      margin-top: 25px;
+    }
+
+    .store-buttons {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .app-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #000;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .app-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .app-btn img {
+      height: 24px;
+    }
+
+    /* Who We Used */
+    .who-we-used {
+      text-align: center;
+      padding: 100px 20px 60px;
+    }
+
+    .who-we-used h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 60px;
+    }
+
+    .who-grid {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .who-item {
+      width: 260px;
+    }
+
+    .who-item img {
+      height: 60px;
+      margin-bottom: 25px;
+    }
+
+    .who-item h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .who-item p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    /* Features */
+    .features {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      padding: 60px 80px 100px;
+      max-width: 1300px;
+      margin: auto;
+      gap: 60px;
+    }
+
+    .features-left {
+      flex: 1;
+      min-width: 320px;
+    }
+
+    .features-left h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .features-left p {
+      color: #555;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .feature-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .feature-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .feature-number {
+      background: #a349ff;
+      color: white;
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-top: 4px;
+      flex-shrink: 0;
+    }
+
+    .feature-text h4 {
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .feature-text p {
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .features-right {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .features-right img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 15px;
+    }
+
+    
+
+    /* Dip Connect Section */
+    .dip-section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 80px auto;
+      padding: 60px 80px;
+      gap: 60px;
+    }
+
+    .dip-section img {
+      width: 320px;
+      border-radius: 15px;
+    }
+
+    .dip-content {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .dip-content h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .dip-content p {
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+
+    .purple-btn {
+      background: linear-gradient(90deg, #a349ff, #9333ff);
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      padding: 12px 28px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .purple-btn:hover {
+      opacity: 0.9;
+    }
+
+    /* Stats */
+    .stats-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(90deg, #a349ff, #9333ff);
+      color: #fff;
+      padding: 40px 20px;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .stat-item {
+      text-align: center;
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .stat-item h3 {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    .stat-item p {
+      font-size: 0.95rem;
+      margin-top: 5px;
+    }
+
+   /* Testimonials */
+    .testimonials {
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    .testimonials h2 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      margin-bottom: 50px;
+    }
+
+    .testimonial-box {
+      max-width: 800px;
+      margin: auto;
+      background: #fff;
+      padding: 60px 60px 40px;
+      border-radius: 20px;
+      box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.05);
+      position: relative;
+    }
+
+    .quote-img {
+      position: absolute;
+      top: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: auto;
+    }
+
+    .testimonial-box p {
+      color: #333;
+      font-size: 1rem;
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, #B43BFF 0%, #9D00FF 100%);
+      color: #fff;
+      padding: 60px 20px 30px;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .footer-logo {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .footer-logo .logo {
+      margin-bottom: 15px;
+    }
+
+    .footer-logo .logo img {
+      height: 40px;
+    }
+
+    .footer-logo h2 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .footer-logo p {
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .copyright {
+      margin-top: 20px;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+    }
+
+    .footer-links {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .footer-links h3 {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+    .footer-apps {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .footer-apps h3 {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .footer-apps p {
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 20px;
+    }
+
+    .footer-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .footer-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+      width: 220px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .footer-btn:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+    }
+
+    .footer-btn img {
+      height: 24px;
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 40px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      text-align: center;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+    }
+
+    /* Section Spacing */
+    section {
+      scroll-margin-top: 80px;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .features, .dip-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 60px 30px;
+      }
+      .features-right, .dip-content {
+        justify-content: center;
+      }
+      .dip-section img {
+        width: 280px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 20px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .hero {
+        padding: 60px 20px;
+      }
+
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+
+      .who-item {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .features {
+        padding: 40px 20px;
+      }
+
+      .features-right img {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .testimonial-box {
+        padding: 30px 20px;
+      }
+
+      .dip-section {
+        padding: 40px 20px;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .footer-buttons {
+        align-items: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .stats-bar {
+        gap: 20px;
+      }
+
+      .stat-item {
+        min-width: 150px;
+      }
+
+      .store-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    /* Image above */
+    @media (max-width: 768px) {
+  .features {
+    flex-direction: column;
+  }
+
+  .features-right {
+    order: -1;   /* Moves image to the top */
+    margin-bottom: 20px;
+  }
+
+  .features-left {
+    text-align: center;
+  }
+}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="assets/images/logo.png" alt="Phonedipidity Logo" />
+    </div>
+    <nav class="nav-links">
+      <a href="#home" class="active">Home</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#features">Features</a>
+      <a href="#testimonials">Testimonials</a>
+      <!-- <a href="#contact">Contact Us</a> -->
+      <button class="download-btn">Download Now</button>
+    </nav>
+    <button class="mobile-menu-btn">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="mobile-nav">
+      <a href="#home" class="active">Home</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#features">Features</a>
+      <a href="#testimonials">Testimonials</a>
+      <!-- <a href="#contact">Contact Us</a> -->
+      <button class="download-btn">Download Now</button>
+    </div>
+  </header>
+
+  <section id="home" class="hero">
+    <h1>Find The <span>Connection</span><br> You've Been Waiting For</h1>
+    <p>
+      Every dip is a chance to share stories, laughs, and authentic moments.
+      Together, we turn simple habits into unforgettable shared experiences.
+    </p>
+    <div class="store-buttons">
+      <a href="#" class="app-btn">
+        <img src="assets/images/appleIcon.png" alt="Apple Icon">
+        <div>
+          <div style="font-size: 0.8rem;">Download on the</div>
+          <div style="font-size: 1.1rem; font-weight: 600;">App Store</div>
+        </div>
+      </a>
+      <a href="#" class="app-btn">
+        <img src="assets/images/play-icon.png" alt="Google Play Icon">
+        <div style="text-align: left;">
+          <div style="font-size: 0.8rem;">GET IT ON</div>
+          <div style="font-size: 1.1rem; font-weight: 600;">Google Play</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section id="how-it-works" class="who-we-used">
+    <h2>How It Works</h2>
+    <div class="who-grid">
+      <div class="who-item">
+        <img src="assets/images/icon1.png" alt="Sign Up Icon">
+        <h3>Sign Up In Minutes</h3>
+        <p>Create your profile effortlessly in just a few clicks and start your journey.</p>
+      </div>
+      <div class="who-item">
+        <img src="assets/images/icon2.png" alt="Connect Icon">
+        <h3>Connect With Matches</h3>
+        <p>Chat, share interests, and build connections who truly match your vibe.</p>
+      </div>
+      <div class="who-item">
+        <img src="assets/images/icon3.png" alt="Enjoy Icon">
+        <h3>Enjoy Dipping Together</h3>
+        <p>Share the fun of dipping with others and turn every session into a memorable experience.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="features">
+    <div class="features-left">
+      <h2>Our Best Features</h2>
+      <p>Packed with features to help you connect, interact, and find people effortlessly.</p>
+
+      <div class="feature-item">
+        <div class="feature-number">1</div>
+        <div class="feature-text">
+          <h4>Profile Verification</h4>
+          <p>Showcase yourself with a personalized profile. Add your details to make it easier for others to dip in.</p>
+        </div>
+      </div>
+
+      <div class="feature-list">
+        <div class="feature-item">
+          <div class="feature-number">2</div>
+          <div class="feature-text">
+            <h4>Realtime Dipping</h4>
+            <p>See who's nearby and instantly discover people around you in real time.</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-number">3</div>
+          <div class="feature-text">
+            <h4>Chatting</h4>
+            <p>Stay connected through instant messaging. Send GIFs, photos, and videos for expressive chats.</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-number">4</div>
+          <div class="feature-text">
+            <h4>Share Media</h4>
+            <p>Make conversations more engaging and authentic with rich media sharing.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="features-right">
+      <img src="assets/images/featured.png" alt="Features Preview">
+    </div>
+  </section>
+
+  <!-- Dip Connect Section -->
+  <section class="dip-section">
+    <img src="assets/images/dipSectionImage.png" alt="Dip Connect Image">
+    <div class="dip-content">
+      <h2>Dip. Connect. Enjoy</h2>
+      <p>With every dip, you share more than flavor — you share moments, friendships, and authentic bonds that bring lasting joy. Our app makes it easy to connect with others who share the same vibe.</p>
+      <button class="purple-btn">Download App Now</button>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <!-- <section class="stats-bar">
+    <div class="stat-item">
+      <h3>500k+</h3>
+      <p>Members Worldwide</p>
+    </div>
+    <div class="stat-item">
+      <h3>200k+</h3>
+      <p>Successful Matches</p>
+    </div>
+    <div class="stat-item">
+      <h3>10k+</h3>
+      <p>Happy Peoples</p>
+    </div>
+  </section> -->
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="testimonials">
+    <h2>What people are saying about us</h2>
+    <div class="testimonial-box">
+      <img src="assets/images/quote.png" alt="Quote" class="quote-img">
+      <p>I like phonedipidity because it's different from the typical swiping apps. You actually get a sense of the person you're talking to and it's a much more personal way to meet people.</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <!-- <section id="contact" class="who-we-used" style="padding-bottom: 100px;">
+    <h2>Contact Us</h2>
+    <div class="who-grid">
+      <div class="who-item">
+        <i class="fas fa-envelope" style="font-size: 60px; color: #a349ff; margin-bottom: 25px;"></i>
+        <h3>Email Us</h3>
+        <p>support@phonedipidity.com</p>
+      </div>
+      <div class="who-item">
+        <i class="fas fa-phone" style="font-size: 60px; color: #a349ff; margin-bottom: 25px;"></i>
+        <h3>Call Us</h3>
+        <p>+1 (555) 123-4567</p>
+      </div>
+      <div class="who-item">
+        <i class="fas fa-map-marker-alt" style="font-size: 60px; color: #a349ff; margin-bottom: 25px;"></i>
+        <h3>Visit Us</h3>
+        <p>123 Connection Street, Digital City</p>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">
+        <div class="logo">
+          <img src="assets/images/logo-white.png" alt="Phonedipidity Logo" />
+        </div>
+        <p>A radar for your social life</p>
+        <div class="copyright">
+          <p>© 2025 Copyrights. All Rights Reserved</p>
+        </div>
+      </div>
+      
+      <div class="footer-links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <!-- <li><a href="#contact">Contact Us</a></li> -->
+        </ul>
+      </div>
+      
+      <div class="footer-apps">
+        <h3>Download App Now</h3>
+        <p>Get the app and start connecting today</p>
+        <div class="footer-buttons">
+          <a href="#" class="footer-btn">
+            <img src="assets/images/appleIcon.png" alt="Apple Icon">
+            <div>
+              <div style="font-size: 0.7rem;">Available on the</div>
+              <div style="font-size: 0.9rem; font-weight: 600;">App Store</div>
+            </div>
+          </a>
+          <a href="#" class="footer-btn">
+            <img src="assets/images/play-icon.png" alt="Google Play Icon">
+            <div>
+              <div style="font-size: 0.7rem;">GET IT ON</div>
+              <div style="font-size: 0.9rem; font-weight: 600;">Google Play</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>© 2025 Phonedipity. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const mobileNav = document.querySelector('.mobile-nav');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileNav.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking on a link
+    const mobileLinks = document.querySelectorAll('.mobile-nav a, .mobile-nav .download-btn');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.remove('active');
+      });
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if(targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if(targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Update active nav link on scroll
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('section');
+      const navLinks = document.querySelectorAll('.nav-links a, .mobile-nav a');
+      
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if(scrollY >= (sectionTop - 100)) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if(link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
