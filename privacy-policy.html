@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phonedipity - Terms & Privacy</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #7c3aed;
+            --primary-light: #8b5cf6;
+            --secondary: #10b981;
+            --dark: #1f2937;
+            --light: #f9fafb;
+            --gray: #6b7280;
+            --gray-light: #e5e7eb;
+            --border: #d1d5db;
+            --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            --radius: 8px;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.5;
+            color: var(--dark);
+            background-color: #f8fafc;
+            font-size: 15px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            padding: 25px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--gray-light);
+            margin-bottom: 25px;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .header .subtitle {
+            font-size: 14px;
+            color: var(--gray);
+            margin-bottom: 5px;
+        }
+
+        .effective-date {
+            font-size: 13px;
+            color: var(--gray);
+            background: #f1f5f9;
+            padding: 4px 12px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        /* Document Headers */
+        .document-header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: 25px;
+            border-radius: var(--radius);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .document-header.terms {
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        }
+
+        .document-header.privacy {
+            background: linear-gradient(135deg, #059669, #10b981);
+            margin-top: 40px;
+        }
+
+        .document-header h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .document-header p {
+            opacity: 0.9;
+            font-size: 15px;
+        }
+
+        /* Content Cards */
+        .content-card {
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .section:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: var(--dark);
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .section-title .number {
+            background: var(--primary);
+            color: white;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .section-content {
+            color: #374151;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .section-content p {
+            margin-bottom: 12px;
+        }
+
+        /* Lists */
+        .compact-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 15px 0;
+        }
+
+        .compact-list li {
+            padding: 6px 0;
+            padding-left: 24px;
+            position: relative;
+            font-size: 14px;
+        }
+
+        .compact-list li:before {
+            content: "•";
+            position: absolute;
+            left: 8px;
+            color: var(--primary);
+            font-size: 18px;
+        }
+
+        /* Highlights */
+        .note-box {
+            background: #f0f9ff;
+            border: 1px solid #bae6fd;
+            padding: 12px 16px;
+            margin: 15px 0;
+            border-radius: 6px;
+            font-size: 13.5px;
+        }
+
+        .note-box.warning {
+            background: #fef3c7;
+            border-color: #fbbf24;
+        }
+
+        .note-box.success {
+            background: #d1fae5;
+            border-color: #34d399;
+        }
+
+        .note-box i {
+            margin-right: 6px;
+            color: var(--primary);
+        }
+
+        /* Table */
+        .simple-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 13.5px;
+        }
+
+        .simple-table th {
+            background: #f8fafc;
+            color: var(--dark);
+            padding: 10px;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .simple-table td {
+            padding: 10px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .simple-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 20px 0;
+            color: var(--gray);
+            font-size: 13px;
+            border-top: 1px solid #f1f5f9;
+            margin-top: 40px;
+        }
+
+        .contact-box {
+            background: white;
+            border: 1px solid #e5e7eb;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px auto;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .contact-email {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #f8fafc;
+            padding: 8px 16px;
+            border-radius: 6px;
+            margin-top: 8px;
+            font-size: 14px;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .contact-email:hover {
+            background: #f1f5f9;
+        }
+
+        /* Quick Navigation */
+        .quick-nav {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 15px;
+            display: none;
+            z-index: 100;
+        }
+
+        @media (min-width: 992px) {
+            .quick-nav {
+                display: block;
+            }
+        }
+
+        .quick-nav h4 {
+            font-size: 14px;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .quick-nav a {
+            display: block;
+            padding: 6px 10px;
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 13px;
+            border-radius: 4px;
+        }
+
+        .quick-nav a:hover {
+            background: #f1f5f9;
+            color: var(--primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .content-card {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 22px;
+            }
+            
+            .document-header h2 {
+                font-size: 24px;
+            }
+            
+            .section-title {
+                font-size: 17px;
+            }
+            
+            .simple-table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .quick-nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1>Phonedipity</h1>
+            <p class="subtitle">Terms of Service & Privacy Policy</p>
+            <div class="effective-date">Effective Date: September 15, 2025</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Quick Navigation (Desktop only) -->
+        <div class="quick-nav">
+            <h4><i class="fas fa-bookmark"></i> Quick Links</h4>
+            <a href="#terms"><i class="fas fa-file-contract"></i> Terms of Service</a>
+            <a href="#privacy"><i class="fas fa-shield-alt"></i> Privacy Policy</a>
+        </div>
+
+        <!-- TERMS OF SERVICE SECTION -->
+        <div class="document-header terms" id="terms">
+            <h2><i class="fas fa-file-contract"></i> Terms of Service</h2>
+            <p>Last Updated: October 01, 2025</p>
+        </div>
+
+        <div class="content-card">
+            <div class="section">
+                <div class="section-title">
+                    <div class="number">1</div>
+                    <h2>Acceptance of Terms</h2>
+                </div>
+                <div class="section-content">
+                    <p>By creating an account or using Phonedipity ("the App"), you agree to these Terms of Service. You must be at least 13 years old to use the App.</p>
+                    <div class="note-box warning">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <strong>Important:</strong> If you are under the age of majority in your jurisdiction, you must have permission from a parent or guardian.
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <div class="number">2</div>
+                    <h2>Your Account</h2>
+                </div>
+                <div class="section-content">
+                    <ul class="compact-list">
+                        <li>You are responsible for maintaining the security of your account</li>
+                        <li>All information you provide must be accurate and current</li>
+                        <li>Do not impersonate others or misrepresent your identity</li>
+                        <li>You may only maintain one active account</li>
+                        <li>You must notify us immediately of any unauthorized account use</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <div class="number">3</div>
+                    <h2>Zero Tolerance Policy</h2>
+                </div>
+                <div class="section-content">
+                    <p>Phonedipity maintains a zero tolerance policy for objectionable content and abusive users. You agree NOT to:</p>
+                    <ul class="compact-list">
+                        <li>Use the App for any illegal purpose or to violate any laws</li>
+                        <li>Harass, threaten, bully, intimidate, or stalk other users</li>
+                        <li>Share hate speech, sexually explicit content, or violent material</li>
+                        <li>Discriminate based on race, gender, religion, or other protected characteristics</li>
+                        <li>Share false or misleading information</li>
+                        <li>Impersonate others or share others' private information without consent</li>
+                        <li>Attempt to hack, disrupt, or misuse the App's systems</li>
+                    </ul>
+                    <div class="note-box warning">
+                        <i class="fas fa-ban"></i>
+                        <strong>Consequences:</strong> Violation of these rules may result in immediate content removal, account suspension, or permanent termination without warning.
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <div class="number">4</div>
+                    <h2>Content You Share</h2>
+                </div>
+                <div class="section-content">
+                    <p>You own the content you create and share (such as messages, photos, and videos).
+By sharing content in the App, you give us permission to host, store, and display it as needed to operate the App.
+We do not claim ownership of your content..</p>
+                    <div class="note-box success">
+                        <i class="fas fa-check-circle"></i>
+                        <strong>Ownership:</strong> We do not claim ownership of your content. You can delete your content at any time.
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <div class="number">5</div>
+                    <h2>Safety Features & User Controls</h2>
+                </div>
+                <div class="section-content">
+                    <p>Phonedipity includes the following safety features to protect our community:</p>
+                    <ul class="compact-list">
+                        <li><strong>User Blocking:</strong> You can block any user at any time to prevent further interaction</li>
+                        <li><strong>Reporting System:</strong> Report inappropriate content or behavior for our team to review</li>
+                        <li><strong>Content Moderation:</strong> Our team manually reviews reported content</li>
+                        <li><strong>Manual Location Sharing:</strong> Location is shared ONLY when you manually check-in</li>
+                        <li><strong>Visibility Controls:</strong> Full control over when you're visible</li>
+                    </ul>
+                    <div class="note-box">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>Age Restriction:</strong> This app includes user-generated social content and is rated for users 17+ with Frequent/Intense Mature/Suggestive Themes.
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <div class="number">6</div>
+                    <h2>Location Sharing</h2>
+                </div>
+                <div class="section-content">
+                    <ul class="compact-list">
+                        <li>Location sharing requires manual action</li>
+                        <li>You must tap "Share My Location" each time you wish to share your location</li>
+                        <li>No background location tracking</li>
+                        <li>Location sharing ends when you manually stop sharing</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <div class="number">7</div>
+                    <h2>Termination</h2>
+                </div>
+                <div class="section-content">
+                    <p>You may stop using the App at any time by deleting your account. We reserve the right to suspend or terminate accounts that:</p>
+                    <ul class="compact-list">
+                        <li>Violate these Terms of Service</li>
+                        <li>Engage in harmful, abusive, or illegal behavior</li>
+                        <li>Create risk or legal exposure for Phonedipity</li>
+                        <li>Infringe on the rights of others</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <div class="number">8</div>
+                    <h2>Limitation of Liability</h2>
+                </div>
+                <div class="section-content">
+                    <p>To the fullest extent permitted by law, Phonedipity shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of or inability to use the App.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <div class="number">9</div>
+                    <h2>Changes to Terms</h2>
+                </div>
+                <div class="section-content">
+                    <p>We may update these Terms from time to time. We will notify you of significant changes within the App or via email. Your continued use of the App after changes constitutes acceptance of the new Terms.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <div class="number">10</div>
+                    <h2>Contact & Support</h2>
+                </div>
+                <div class="section-content">
+                    <p>For questions about these Terms or to report violations:</p>
+                    <div class="contact-box">
+                        <a href="mailto:support@phonedipity.com" class="contact-email">
+                            <i class="fas fa-envelope"></i>
+                            support@phonedipity.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PRIVACY POLICY SECTION -->
+        <div class="document-header privacy" id="privacy">
+            <h2><i class="fas fa-shield-alt"></i> Privacy Policy</h2>
+            <p>Last Updated: October 01, 2025</p>
+        </div>
+
+        <div class="content-card">
+            <div class="section">
+                <div class="section-title">
+                    <div class="number">1</div>
+                    <h2>Information We Collect</h2>
+                </div>
+                <div class="section-content">
+                    <p>We collect information to provide and improve our services:</p>
+                    
+                    <table class="simple-table">
+                        <tr>
+                            <th>Type</th>
+                            <th>What We Collect</th>
+                            <th>Purpose</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Account Information</strong></td>
+                            <td>Email, name, profile picture, optional age/gender</td>
+                            <td>Account creation and personalization</td>
+                        </tr>
+                        <tr>
+                            <td><strong>User Content</strong></td>
+                            <td>Messages, photos, profile information you share</td>
+                            <td>Core app functionality</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Technical Data</strong></td>
+                            <td>Device info, IP address, usage logs, crash reports</td>
+                            <td>App performance and security</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Third-Party Data</strong></td>
+                            <td>Limited data from Firebase, analytics services</td>
+                            <td>Essential functionality</td>
+                        </tr>
+                    </table>
+                    
+                    <div class="note-box">
+                        <h4><i class="fas fa-map-marker-alt"></i> Location Data</h4>
+                        <p><strong>Specific Purpose:</strong> Your location is visible ONLY when you manually tap "Share My Location" and is used to:</p>
+                        <ul class="compact-list">
+                            <li>Show you other users near your current location</li>
+                            <li>Allow other users to see your location on the map (when you choose to be visible)</li>
+                            <li>Calculate approximate distances between users</li>
+                        </ul>
+                        <p><strong>Important Privacy Controls:</strong></p>
+                        <ul class="compact-list">
+                            <li><strong>Manual Only:</strong> Location sharing requires explicit action each time</li>
+                            <li><strong>No Background Tracking:</strong> We never track location in the background</li>                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <div class="number">2</div>
+                    <h2>How We Use Information</h2>
+                </div>
+                <div class="section-content">
+                    <ul class="compact-list">
+                        <li>Provide, maintain, and improve the App's features</li>
+                        <li>Personalize your experience and show relevant content</li>
+                        <li>Ensure security, prevent fraud, and detect abuse</li>
+                        <li>Communicate with you about updates, security alerts, or support</li>
+                        <li>Analyze usage patterns to improve performance</li>
+                        <li>Comply with legal obligations and enforce our terms</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <div class="number">3</div>
+                    <h2>Information Sharing</h2>
+                </div>
+                <div class="section-content">
+                    <p>We only share information in these limited circumstances:</p>
+                    <ul class="compact-list">
+                        <li><strong>With Your Consent:</strong> When you choose to share information with other users</li>
+                        <li><strong>Service Providers:</strong> Trusted partners who help us operate the App (hosting, analytics)</li>
+                        <li><strong>Legal Requirements:</strong> When required by law or to protect rights, safety, or property</li>
+                        <li><strong>Business Transfers:</strong> In connection with a merger, acquisition, or sale of assets</li>
+                    </ul>
+                    <div class="note-box success">
+                        <i class="fas fa-ban"></i>
+                        <strong>No Selling:</strong> We do not sell your personal information to third parties for advertising or other purposes.
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <div class="number">4</div>
+                    <h2>GDPR Compliance</h2>
+                </div>
+                <div class="section-content">
+                    <p>For users in the European Economic Area (EEA), we process personal data under these legal bases:</p>
+                    <div class="note-box">
+                        <strong>Contractual Necessity:</strong> Processing necessary to provide the services you requested (account creation, messaging, etc.)
+                    </div>
+                    <div class="note-box">
+                        <strong>Legitimate Interests:</strong> Processing necessary for our legitimate interests (security, fraud prevention, app improvement)
+                    </div>
+                    <div class="note-box">
+                        <strong>Legal Obligation:</strong> Processing necessary to comply with legal requirements
+                    </div>
+                    <div class="note-box">
+                        <strong>Explicit Consent:</strong> For location data and optional features - you can withdraw consent anytime
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <div class="number">5</div>
+                    <h2>Your Rights & Choices</h2>
+                </div>
+                <div class="section-content">
+                    <p>Depending on your location, you may have rights including:</p>
+                    <ul class="compact-list">
+                        <li><strong>Access:</strong> Request a copy of your personal information</li>
+                        <li><strong>Correction:</strong> Update inaccurate or incomplete information</li>
+                        <li><strong>Deletion:</strong> Request deletion of your personal information</li>
+                        <li><strong>Restriction:</strong> Request restriction of processing</li>
+                        <li><strong>Objection:</strong> Object to certain processing activities</li>
+                        <li><strong>Portability:</strong> Request transfer of your data to another service</li>
+                        <li><strong>Withdraw Consent:</strong> Withdraw consent at any time</li>
+                    </ul>
+                    <div class="note-box">
+                        <i class="fas fa-envelope"></i>
+                        To exercise any of these rights, contact us at: <strong>support@phonedipity.com</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <div class="number">6</div>
+                    <h2>Data Retention</h2>
+                </div>
+                <div class="section-content">
+                    <ul class="compact-list">
+                        <li><strong>Active Accounts:</strong> Data retained while your account is active</li>
+                        <li><strong>Inactive Accounts:</strong> Data may be retained for up to 6 months</li>
+                        <li><strong>Deleted Accounts:</strong> Data permanently deleted within 30 days</li>
+                        <li><strong>Legal Requirements:</strong> Some data retained as required by law</li>
+                    </ul>
+                    <div class="note-box warning">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <strong>Note:</strong> Deleted data cannot be recovered. Make sure to download any important information before deleting your account.
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <div class="number">7</div>
+                    <h2>Children's Privacy</h2>
+                </div>
+                <div class="section-content">
+                    <div class="note-box warning">
+                        <i class="fas fa-child"></i>
+                        <strong>Age Restriction:</strong> Phonedipity is not intended for children under 13. We do not knowingly collect information from children under 13. If we learn we have collected such information, we will delete it immediately.
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <div class="number">8</div>
+                    <h2>Security Measures</h2>
+                </div>Tr
+                <div class="section-content">
+                    <p>We implement appropriate technical and organizational measures to protect your personal information, including:</p>
+                    <ul class="compact-list">
+                        <li>Encryption of data in transit using TLS/SSL</li>
+                        <li>Secure storage systems with access controls</li>
+                        <li>Regular security assessments and updates</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <div class="number">9</div>
+                    <h2>International Transfers</h2>
+                </div>
+                <div class="section-content">
+                    <p>If you use the App outside the U.S., your data may be transferred to and processed in the U.S. or other countries. We use appropriate safeguards to protect it in line with GDPR and other regulations.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    <div class="number">10</div>
+                    <h2>Contact Us</h2>
+                </div>
+                <div class="section-content">
+                    <p>For questions about this Privacy Policy or our privacy practices:</p>
+                    <div class="contact-box">
+                        <a href="mailto:support@phonedipity.com" class="contact-email">
+                            <i class="fas fa-envelope"></i>
+                            support@phonedipity.com
+                        </a>
+                        <p style="margin-top: 10px; font-size: 13px; color: var(--gray);">
+                            <i class="fas fa-clock"></i> We typically respond within 24-48 hours
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2025 Phonedipity. All rights reserved.</p>
+            <p>Effective Date: September 15, 2025 | Last Updated: October 01, 2025</p>
+            <div style="margin-top: 15px; font-size: 12px; color: #9ca3af;">
+                <i class="fas fa-mobile-alt"></i> Mobile App | 
+                <i class="fas fa-shield-alt"></i> Your Privacy Matters | 
+                <i class="fas fa-heart"></i> Safe Community
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 20,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Add scroll effect to sections
+            const sections = document.querySelectorAll('.section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            sections.forEach(section => {
+                section.style.opacity = '0.9';
+                section.style.transform = 'translateY(10px)';
+                section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(section);
+            });
+            
+            // Update quick nav position on scroll
+            window.addEventListener('scroll', function() {
+                const quickNav = document.querySelector('.quick-nav');
+                if (quickNav) {
+                    if (window.scrollY > 100) {
+                        quickNav.style.top = '20px';
+                    } else {
+                        quickNav.style.top = '100px';
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
